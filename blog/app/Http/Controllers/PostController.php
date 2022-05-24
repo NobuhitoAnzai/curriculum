@@ -14,7 +14,8 @@ class PostController extends Controller
  * @return array Postモデルリスト
  */
   public function index(Post $post)
-  {
- return  $post->get();
-  }
+{
+    return view('posts/index')->with(['posts' => $post->getPaginateByLimit(1)]);
+} 
 }
+?>
